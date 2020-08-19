@@ -59,7 +59,7 @@ public class Basket {
          *  which provides that functionality.
          */
         private BigDecimal discounts() {
-            return discounts.stream().map(Discount::apply)
+            return discounts.stream().map(d -> d.apply(items))
                     .reduce(BigDecimal::add)
                     .orElse(BigDecimal.ZERO)
                     .setScale(2, RoundingMode.HALF_UP);
