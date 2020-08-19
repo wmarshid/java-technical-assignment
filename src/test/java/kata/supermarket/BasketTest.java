@@ -19,7 +19,7 @@ class BasketTest {
     @ParameterizedTest(name = "{0}")
     void basketProvidesTotalValue(String description, String expectedTotal, Iterable<Item> items) {
         final Basket basket = new Basket();
-        items.forEach(basket::add);
+        items.forEach(basket::addItem);
         assertEquals(new BigDecimal(expectedTotal), basket.total());
     }
 
